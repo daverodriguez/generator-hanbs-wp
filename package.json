@@ -1,6 +1,6 @@
 {
   "name": "generator-hanbs-wp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Yeoman generator for scaffolding HanBootStrap into Wordpress sites.",
   "keywords": [
     "yeoman-generator",
