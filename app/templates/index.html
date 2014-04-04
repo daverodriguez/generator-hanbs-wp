@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/lib/modernizr-2.6.2.min.js"></script>
+    </head>
+	<!-- Standard init -->
+	<body data-section="<%= appNS %>.controllers.mySection" data-page="myPage">
+	<!-- Fancy autoloading -->
+    <!--<body data-section="<%= appNS %>.controllers.mySection" data-page="myPage" data-autoload data-async-script="js/<%= appNS %>/controllers/mysection.js">-->
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<!-- Add your site or application content here -->
+					<h1>Welcome to the HanBootStrap standard starter application</h1>
+
+					<div class="alert alert-info">
+						<h2>What do?</h2>
+					</div>
+
+					<ol>
+						<li>Make web page.</li>
+						<li>Make Javascripts.</li>
+						<li>Load HBS.js</li>
+						<li>Use <code>HBS.namespace()</code> to make your Javascripts accessible globally.</li>
+						<li>Make a section controller and put your module init code in it.</li>
+						<li>Add <code>data-section</code> and <code>data-page</code> variables to your <code>&lt;body&gt;</code>.
+						</li>
+						<li>Magic!</li>
+					</ol>
+
+					<p>Main.js loads another file called the bootstrapper or HBS (js/lib/hanbootstrapper.js).
+						Bootstrapper includes some object-creation and extension functions to make object-oriented
+						Javascript easier.
+						It also contains a function that runs when the page is loaded and looks for two data variables
+						on the body element
+						(data-section and data-page).</p>
+
+					<pre><code>&lt;body <strong>data-section=&quot;<%= appNS %>.sections.mySection&quot;</strong> <strong>data-page=&quot;myPage&quot;&gt;</strong></code></pre>
+
+					<p>If you want to auto-load and init your Javascript, do this:</p>
+
+					<pre><code>&lt;body <strong>data-section=&quot;<%= appNS %>.sections.mySection&quot;</strong> <strong>data-page=&quot;myPage&quot;
+						data-autoload data-script-async=&quot;js/<%= appNS %>/controllers/mysection.js&quot;&gt;</strong></code></pre>
+
+					<p>Instead of maintaining separate include files for each section, we use these two variables to
+						load a section-specific
+						Javascript file and run a specific function to initialize the current page.</p>
+
+					<p>The bootstrapper first attempts to load the Javascript class referenced by data-section. That
+						class must be loaded
+						separately in a script tag or by some other method (or turn on autoload?).</p>
+
+					<p>This file is called a section controller. It contains an init() function that holds code that
+						needs to run on every
+						page in a section, and can optionally contain a specific function for every page. The init()
+						function is automatically
+						run if it exists.</p>
+
+					<p>After the section controller loads and init() is run, the bootstrapper looks for a function in
+						the section controller
+						matching the data-page attribute, in this case <code>myPage()</code>. If that function exists,
+						it is run.</p>
+
+					<p>A section controller or might load many other Javascript classes and/or third party
+						libraries.</p>
+
+					<p>Open your browser console to see the output from initializing each type of example class.</p>
+
+					<p>This section is for the example widget.</p>
+					<ul>
+						<li class="make-red">Red</li>
+						<li>Not Red</li>
+						<li>Not Red</li>
+						<li class="make-red">Red</li>
+						<li>Not Red</li>
+						<li class="make-red">Red</li>
+						<li class="make-blue">Blue</li>
+						<li>Not Red</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/lib/jquery-1.10.2.min.js"><\/script>')</script>
+
+		<script src="js/lib/hbs.js"></script>
+		<!-- Add your plugins, modules and classes here -->
+		<!-- Remove these example classes if you don't need them -->
+		<script src="js/<%= appNS %>/examples/MyClass.js"></script>
+		<script src="js/<%= appNS %>/examples/MySubclass.js"></script>
+		<script src="js/<%= appNS %>/examples/MySingleton.js"></script>
+		<script src="js/<%= appNS %>/examples/MyWidget.js"></script>
+
+		<!-- Add your app main and section controller here -->
+		<script src="js/<%= appNS %>/main.js"></script>
+		<script src="js/<%= appNS %>/controllers/mysection.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "generator-hanbs-wp",
+  "version": "0.0.1",
+  "description": "A Yeoman generator for scaffolding HanBootStrap into Wordpress sites.",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/daverodriguez/generator-hanbs-wp",
+  "bugs": "https://github.com/daverodriguez/generator-hanbs-wp/issues",
+  "author": {
+    "name": "Dave Rodriguez",
+    "email": "dave.rodriguez@hansoninc.com",
+    "url": "https://github.com/daverodriguez"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daverodriguez/generator-hanbs-wp.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.14.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
