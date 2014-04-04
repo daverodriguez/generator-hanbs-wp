@@ -88,6 +88,13 @@ HanbsWpGenerator.prototype.projectfiles = function projectfiles() {
 		this.template('js/APP/controllers/controller.js', this.jsPath + '/' + this.appNS + '/controllers/' + this.controllerName + '.js');
 	}
 
-	//this.template('js/lib/jquery-1.10.2.min.js', 'js/lib/jquery-1.10.2.min.js');
-	//this.template('js/lib/modernizr-2.6.2.min.js', 'js/lib/modernizr-2.6.2.min.js');
+	// Save settings for later
+	var savedSettings = {
+		appName: this.appName,
+		appNS: this.appNS,
+		jsPath: this.jsPath,
+		controllerName: this.controllerName
+	}
+	this.write( 'hanbs.json', JSON.stringify(savedSettings) );
+
 };

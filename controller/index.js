@@ -15,27 +15,46 @@ var ControllerGenerator = module.exports = function ControllerGenerator(args, op
 util.inherits(ControllerGenerator, yeoman.generators.NamedBase);
 
 ControllerGenerator.prototype.askFor = function askFor() {
-	var cb = this.async();
 
-	var prompts = [
-		{
-			name: 'appNS',
-			message: 'What\'s the namespace of your app?',
-			default: 'APP'
-		},
-		{
-			name: 'jsPath',
-			message: 'What is the path to your theme\'s JavaScript folder?',
-			default: 'wp-content/themes/hantheme/assets/js/'
-		}
-	];
+	// Try to load in previously-saved settings
+	var settingsPath = "hanbs.json",
+		settingsFile;
 
-	this.prompt(prompts, function (props) {
-		this.appNS = props.appNS;
-		this.jsPath = props.jsPath;
+	try {
+		settingsFile = this.readFileAsString(settingsPath);
+		var settings = JSON.parse(settingsFile);
 
-		cb();
-	}.bind(this));
+		this.appNS = settings.appNS;
+		this.jsPath = settings.jsPath;
+	} catch(e) {
+		console.log('Unable to load settings');
+	}
+
+	// If we were unable to load settings, prompt for them again
+	if (!this.hasOwnProperty('appNS') || !this.hasOwnProperty('jsPath')) {
+		var cb = this.async();
+
+		var prompts = [
+			{
+				name: 'appNS',
+				message: 'What\'s the namespace of your app?',
+				default: 'APP'
+			},
+			{
+				name: 'jsPath',
+				message: 'What is the path to your theme\'s JavaScript folder?',
+				default: 'wp-content/themes/hantheme/assets/js/'
+			}
+		];
+
+		this.prompt(prompts, function (props) {
+			this.appNS = props.appNS;
+			this.jsPath = props.jsPath;
+
+			cb();
+		}.bind(this));
+	}
+
 };
 
 ControllerGenerator.prototype.files = function files() {
