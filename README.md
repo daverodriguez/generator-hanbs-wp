@@ -9,7 +9,7 @@ A [Yeoman](http://yeoman.io) generator for scaffolding HanBootStrap into Wordpre
 - Open a console at the the root of your project
 - Enter `yo hanbs-wp` and follow the prompts to scaffold your project
 
-As of version 0.0.3, your initial settings will be saved to `hanbs.json` for future use.
+As of version 0.1.0, your initial settings will be saved to `hanbs.json` for future use.
 
 ## Scaffolding controllers
 - Open a console at the root of your project
