@@ -1,5 +1,7 @@
 # generator-hanbs-wp
 
+**This project is now deprecated. Its functionality has been merged into [generator-hanbs](https://github.com/daverodriguez/generator-hanbs).**
+
 A [Yeoman](http://yeoman.io) generator for scaffolding HanBootStrap into Wordpress sites.
 
 ## How to use
